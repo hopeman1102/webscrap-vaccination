@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import schedule
-import config
+import os
 
 
 def crawling(website_link, link_class):
@@ -54,21 +54,21 @@ def check_message(test=False):
 
     try:
         # the website to crawl
-        crawled_content = crawling(config.crawl_url, 'text-c2')
+        crawled_content = crawling(os.environ['CRAWL_URL'], 'text-c2')
     except:
-        send_message(config.chat_id, 'Der Crawler ist kaputt', config.api_key)
+        send_message(os.environ['CHAT_ID'], 'Der Crawler ist kaputt', os.environ['API_KEY'])
 
     # the message to be checked
-    no_vaccines = config.message_to_check
+    no_vaccines = os.environ['MESSAGE']
 
     if test:
-        send_message(config.chat_id, 'Keine neuen Termine', config.api_key)
+        send_message(os.environ['CHAT_ID'], 'Keine neuen Termine', os.environ['API_KEY'])
 
     # messages to send if message_to_check disappeared from website
     if no_vaccines in crawled_content:
         pass
     else:
-        send_message(config.chat_id, 'Es könnte neue Termine geben!', config.api_key)
+        send_message(os.environ['CHAT_ID'], 'Es könnte neue Termine geben!', os.environ['API_KEY'])
 
 
 def summary_message():
@@ -79,7 +79,7 @@ def summary_message():
     Returns: None
     '''
 
-    send_message(config.chat_id, 'Der Crawler läuft noch', config.api_key)
+    send_message(os.environ['CHAT_ID'], 'Der Crawler läuft noch', os.environ['API_KEY'])
 
 
 # send a one time initialization message
