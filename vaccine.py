@@ -66,11 +66,24 @@ def check_message(test=False):
     else:
         send_message(config.chat_id, 'Es könnte neue Termine geben!', config.api_key)
 
+
+def summary_message():
+    '''
+    Function that sends content confirming that the crawler is still
+    running correctly
+    Args: None
+    Returns: None
+    '''
+
+    send_message(config.chat_id, 'Der Crawler läuft noch', config.api_key)
+
+
 # send a one time initialization message
 check_message(test=True)
 
 # schedule crawler
 schedule.every(30).minutes.do(check_message)
+schedule.every().day.at('08:00').do(summary_message)
 
 # run script infinitely
 while True:
