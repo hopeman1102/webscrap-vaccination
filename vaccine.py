@@ -51,8 +51,12 @@ def check_message(test=False):
     Args: test = boolean; used to send a test message after script was run
     Returns: None
     '''
-    # the website to crawl
-    crawled_content = crawling(config.crawl_url, 'text-c2')
+
+    try:
+        # the website to crawl
+        crawled_content = crawling(config.crawl_url, 'text-c2')
+    except:
+        send_message(config.chat_id, 'Der Crawler ist kaputt', config.api_key)
 
     # the message to be checked
     no_vaccines = config.message_to_check
