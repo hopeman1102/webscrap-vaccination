@@ -62,7 +62,7 @@ def check_message(test=False):
     no_vaccines = os.environ['MESSAGE']
 
     if test:
-        send_message(os.environ['CHAT_ID'], 'Keine neuen Termine', os.environ['API_KEY'])
+        send_message(os.environ['CHAT_ID'], 'Das ist ein Test.', os.environ['API_KEY'])
 
     # messages to send if message_to_check disappeared from website
     if no_vaccines in crawled_content:
