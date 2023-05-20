@@ -21,5 +21,5 @@ You can take the code and add your own environment variables for your own telegr
 
 **But please make sure you do not overwhelm the site of the vaccination center.** First, make sure that the robots.txt page allows crawling. Second, use a relatively wide interval - such as 30 minutes or once an hour - to access the site.
 
-## Licensing, Authors, Acknowledgements <a name="licensing"></a>
-The code was created by Julia Nikulski. Feel free to use it for your own project. This project is published under the [MIT License](https://github.com/julianikulski/vaccination-info-bot/blob/main/LICENSE.md).
+## Licensing<a name="licensing"></a>
+Feel free to use it for your own project. This project is published under the [MIT License](https://github.com/hopeman1102/webscrap-vaccination/blob/main/LICENSE.md).
